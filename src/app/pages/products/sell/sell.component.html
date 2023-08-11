@@ -1,0 +1,35 @@
+<div class="w-80 bg-white border border-gray-200 rounded-lg shadow m-2 p-4">
+    
+    <div class="flex flex-col items-center pb-10">
+        <h3 class="text-center text-lg font-bold">Vender</h3> <br>
+
+        <hr>
+        <span class="text-sm text-gray-500 dark:text-gray-400">Producto</span>
+        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{sale.name}}</h5>
+        <span class="text-sm text-gray-500 dark:text-gray-400">Laboratorio</span>
+        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{sale.lab}}</h5>
+        <span class="text-sm text-gray-500 dark:text-gray-400">Precio Unid</span>
+        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">$ {{ sale.value}}</h5>
+        <span class="text-sm text-gray-500 dark:text-gray-400">Precio Total</span>
+        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">$ {{ totalvalue}}</h5>
+
+        <form class="w-full flex flex-wrap" [formGroup]="formData" (ngSubmit)="save()">
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Cantidad</mat-label>
+                <input type="number" matInput formControlName="count" name="count" (keyup)="validateCount()">
+            </mat-form-field>
+            
+            <div class="w-full flex justify-center item center">
+
+                <button class="w-1/2 shadow-xl font-semibold py-3 px-4 rounded-lg my-5 text-white"
+                    [ngClass]="{'opacity-50 bg-gray-500': formData.invalid, 'bg-violet-500': !formData.invalid}"
+                    [disabled]="formData.invalid" type="submit">Vender</button>
+                <button class="w-1/2 shadow-xl font-semibold py-3 px-4 rounded-lg my-5 text-gray-500 ml-2"
+                    [ngClass]="{'opacity-50 bg-gray-500': formData.invalid, 'bg-gray-300': !formData.invalid}"
+                     mat-dialog-close>Cerrar</button>
+            </div>
+
+        </form>
+    </div>
+</div>

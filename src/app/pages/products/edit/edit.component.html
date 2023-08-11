@@ -1,0 +1,51 @@
+<div class="w-full flex justify-center items-center">
+
+    
+    <div class="bg-k-white w-96 h-full relative shadow-xl z-20 rounded-2xl p-3">
+        <h3 class="w-full text-center">Editar producto</h3>
+
+        <form class="w-full flex flex-wrap" [formGroup]="formData" (ngSubmit)="save()">
+
+            <mat-form-field class="example-full-width">
+                <mat-label>id</mat-label>
+                <input matInput formControlName="id" name="id">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="name" name="name">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Laboratorio</mat-label>
+                <input matInput formControlName="lab" name="lab">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" >
+                <mat-label>F/fabricación</mat-label>
+                <input type="date" matInput formControlName="createDate" name="createDate">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>F/vencimiento</mat-label>
+                <input type="date" matInput formControlName="dueDate" name="dueDate">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Cantidad</mat-label>
+                <input matInput formControlName="stock" name="stock">
+            </mat-form-field>
+            
+            <mat-form-field class="example-full-width">
+                <mat-label>Valor</mat-label>
+                <input matInput formControlName="value" name="value">
+            </mat-form-field>
+
+            <button class="w-1/2 m-auto shadow-xl font-semibold py-3 px-4 rounded-lg my-5 text-white"
+                [ngClass]="{'opacity-50 bg-gray-500': formData.invalid, 'bg-violet-500': !formData.invalid}"
+                [disabled]="formData.invalid">Guardar</button>
+
+        </form>
+    </div>
+
+
+</div>
